@@ -54,16 +54,11 @@ window.onload = () => {
     if(currentDOM != undefined ){
       console.log(currentDOM);
       this.textContent = currentDOM.attributes[2].value;
-      console.log(checkAnswers());
-      if(checkAnswers()){
-        showWinModal();
-      }else{
-        showLostModal();
-      }
+      checkAnswersAndShowModal();
     }
   }
   
-  function checkAnswers() {
+  function checkAnswersAndShowModal() {
       let respostas = document.querySelectorAll(".empty");
       console.log(respostas);    
       let resp = [];
@@ -75,24 +70,18 @@ window.onload = () => {
       });
       console.log(resp);
       console.log(gabarito);
-      // let checkAnswerContent = resp.includes("", 0);
-      // console.log("checando", checkAnswerContent);
-      // if(checkAnswerContent){
-      //   return false;
-      // }else{
-      //   for (let index = 0; index < resp.length; index++) {
-      //     if (resp[index] != gabarito[index]) {
-      //       return false;
-      //     } 
-      //   }
-      //   return true;
-      // }
-      for (let index = 0; index < resp.length; index++) {
-        if (resp[index] != gabarito[index]) {
-          return false;
-        } 
+      let checkAnswerContent = resp.includes("", 0);
+      console.log("checando", checkAnswerContent);
+      if(checkAnswerContent){
+        return;
+      }else{
+        for (let index = 0; index < resp.length; index++) {
+          if (resp[index] != gabarito[index]) {
+            showLostModal();
+          } 
+          else showWinModal();
+        }
       }
-      return true;
   }
   
   //Exibir modal de vitória

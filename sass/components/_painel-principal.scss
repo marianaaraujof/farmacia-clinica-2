@@ -6,6 +6,22 @@
   background-color: #eaeaea;
 }
 
+.mainPanelFim {
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  padding: 2em 4em;
+  align-items: flex-start;
+
+  h4 {
+    color: #707070;
+    padding-bottom: 1em;
+  }
+  button{
+    margin-bottom: 2em;
+  }
+}
+
 .panel-title {
   margin-top: 10em;
   color: #707070;
