@@ -66,7 +66,7 @@ window.onload = () => {
 
       respostas.forEach(element => {
         resp.push(element.textContent);
-        gabarito.push(element.attributes[2].value);
+        gabarito.push(element.attributes[1].value);
       });
       console.log(resp);
       console.log(gabarito);
