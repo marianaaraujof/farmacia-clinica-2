@@ -41,7 +41,7 @@ window.onload = () => {
   function dragEnter(e) {
     e.preventDefault();
     if (this.className) {
-      this.className += " hovered";
+      // this.className += " hovered";
     }
   }
   function dragLeave() {
@@ -50,108 +50,72 @@ window.onload = () => {
     }
   }
 
-  function dragDrop() {
-    countCards();
-    if (this.childNodes.length < 4) {
-      //this.id = "removeSpan";
-      this.className = "";
-      this.append(currentDOM);
-      checkConteudos();
-    }
-    setTimeout(() => {
-      if (
-        !checarResp() &&
-        !document.querySelector(".letras").childElementCount
-      ) {
-        let modal = document.querySelector("#myModal-again");
-        modal.className += " show";
-        modal.setAttribute("aria-hidden", "false");
-        modal.setAttribute("style", "display: flex");
-      } else if (checarResp()) {
-        isComplete();
+  function dragDrop() {    
+    if(currentDOM != undefined ){
+      console.log(currentDOM);
+      this.textContent = currentDOM.attributes[2].value;
+      console.log(checkAnswers());
+      if(checkAnswers()){
+        showWinModal();
+      }else{
+        showLostModal();
       }
-    }, 250);
-    // if (document.querySelector(".letras").childElementCount < 5) {
-    //   document.querySelector(".letras").className += " centralize";
-    // }
-  }
-
-  function corrigirPainel(wrong_cards, id_acertos) {
-    if (erros.length) {
-      let vazios = document.querySelectorAll("#removeSpan");
-      let cnt_acertos = 9;
-      wrong_cards.forEach(card => {
-        document.querySelector(".letras").prepend(card);
-      });
-      vazios.forEach(element => {
-        if (id_acertos.indexOf(element.attributes[1].value) < 0) {
-          element.id = "";
-          element.className = "empty";
-          cnt_acertos--;
-        }
-      });
-      document.querySelector(
-        "span#actual-score"
-      ).textContent = `${cnt_acertos}`;
-      document
-        .querySelector(".score")
-        .setAttribute("style", "visibility: visible");
-      let n_cards = document.querySelector(".letras").childElementCount;
-      document.querySelector("#number-card").textContent = `${n_cards}`;
-      document.querySelector(".letras").className = "letras d-flex flex-row justify-content-around";
-      erros = [];
     }
   }
-
-  function countCards() {
-    let n_cards = document.querySelector(".letras").childElementCount - 1;
-    document.querySelector("#number-card").textContent = `${n_cards}`;
-  }
-
-  function checarResp() {
-    if (!document.querySelector(".letras").childElementCount) {
-      let alternativas = document.querySelectorAll("#removeSpan");
-      let respostas = document.querySelectorAll(".letra");
-      let alt = [];
+  
+  function checkAnswers() {
+      let respostas = document.querySelectorAll(".empty");
+      console.log(respostas);    
       let resp = [];
-      let acertos = [];
-      alternativas.forEach(element => {
-        alt.push(element.attributes[1].value);
-      });
+      let gabarito = [];
+
       respostas.forEach(element => {
-        resp.push(element.attributes[2].value);
+        resp.push(element.textContent);
+        gabarito.push(element.attributes[2].value);
       });
+      console.log(resp);
+      console.log(gabarito);
+      // let checkAnswerContent = resp.includes("", 0);
+      // console.log("checando", checkAnswerContent);
+      // if(checkAnswerContent){
+      //   return false;
+      // }else{
+      //   for (let index = 0; index < resp.length; index++) {
+      //     if (resp[index] != gabarito[index]) {
+      //       return false;
+      //     } 
+      //   }
+      //   return true;
+      // }
       for (let index = 0; index < resp.length; index++) {
-        setTimeout(() => {
-          if (resp[index] != alt[index]) {
-            erros.push(respostas[index]);
-            respostas[index].remove();
-          } else if (resp[index] == alt[index]) {
-            acertos.push(alternativas[index].attributes[1].value);
-          }
-        }, 0);
+        if (resp[index] != gabarito[index]) {
+          return false;
+        } 
       }
-      if (!(alt.toString() == resp.toString())) {
-        setTimeout(() => corrigirPainel(erros, acertos)), 300;
-      }
-      return alt.toString() == resp.toString();
-    } else {
-      return false;
-    }
+      return true;
   }
-  //Verifica se o usuário ganhou o jogo
-  function isComplete() {
+  
+  //Exibir modal de vitória
+  function showWinModal() {
     setTimeout(() => {
-      let letras = document.querySelectorAll(".letra");
-      letras.forEach(element => {
-        element.removeAttribute("draggable");
-      });
       let modal = document.querySelector("#myModal");
       modal.className += " show";
       modal.setAttribute("aria-hidden", "false");
       modal.setAttribute("style", "display: flex");
     }, 300);
   }
+
+  //Exibir modal de perda
+  function showLostModal() {
+    setTimeout(() => {
+      let modal = document.querySelector("#myModal-again");
+      modal.className += " show";
+      modal.setAttribute("aria-hidden", "false");
+      modal.setAttribute("style", "display: flex");
+    }, 300);
+  }
+
+
 
   function checkConteudos() {
     conteudos.forEach(conteudo => {
@@ -165,6 +129,7 @@ window.onload = () => {
   //Funcoes de eventos painel de letras
   function dragOver_Panel(e) {
     e.preventDefault();
+    // console.log('over');
     if (this.className === "letras d-flex flex-row justify-content-around") {
       this.className += " hoverletras";
     }
@@ -172,20 +137,14 @@ window.onload = () => {
 
   function dragEnter_Panel(e) {
     e.preventDefault();
+    // console.log('enter');
   }
+
   function dragLeave_Panel() {
-    this.className = "letras d-flex flex-row justify-content-around";
-    if (document.querySelector(".letras").childElementCount < 5) {
-      document.querySelector(".letras").className += " centralize";
-    }
+    // console.log('leave');
+
   }
   function dragDrop_Panel() {
-    if (document.querySelector(".letras").childElementCount < 4) {
-      document.querySelector(".letras").className += " centralize";
-    } else {
-      this.className = "letras d-flex flex-row justify-content-around";
-    }
-    this.prepend(currentDOM);
-    checkConteudos();
+    // console.log('drop');
   }
 };

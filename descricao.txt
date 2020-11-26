@@ -1,0 +1,39 @@
+JOGO_AULA 1_UN2
+
+Aparece a pergunta e uma sequência de letras para que o aluno a escolha e vá montando sua resposta. Deve haver feedback com mensagem de erro ou acerto. Após duas tentativas sem sucesso, a resposta aparece para o aluno com a mensagem do feedback de acerto.
+Mensagem de erro: Resposta errada. Tente novamente.
+
+Mensagem inicial: Leia a questão e escreva a resposta correta clicando nas letras e arrastando para o campo sublinhado.
+
+1. Medicamento que é contraindicado para gestantes ou mulheres que podem engravidar, responsável por casos de graves consequências no feto, inclusive focomelia?
+__ __ __ __ __ __ __ __ __ __
+A B C D E F G H I J K L M N O P Q R S T U V X Y W Z 
+Mensagem feedback de acerto:
+Resposta: TALIDOMIDA (A talidomida é considerada um medicamento de risco X na gestação, sendo contraindicado o seu uso para gestantes ou mulheres que desejam engravidar. Inclusive após a tragédia da talidomida ocorrida entre 1950 e 1960, a utilização de medicamentos por gestantes passou a ser uma preocupação, levando a mudanças nas práticas de prescrição nesse grupo).
+
+2 Em qual período gestacional, a exposição a fármacos pode comprometer a organogênese?
+__ __ __ __ __ __ __ __ __ __ __
+A B C D E F G H I J K L M N O P Q R S T U V X Y W Z  
+Mensagem feedback de acerto:
+Resposta: EMBRIONÁRIO (No período embrionário, os órgãos do feto estão em formação, por isso, que a exposição a fármacos nessa fase pode comprometer a formação dos órgãos, inclusive podendo ocasionar anormalidades estruturais, que costumam ser morfológicas e de grande vulto).
+
+3. Anti-hipertensivo cuja utilização é contraindicada durante a gestação?
+__ __ __ __ __ __ __ __
+A B C D E F G H I J K L M N O P Q R S T U V X Y W Z 
+Mensagem feedback de acerto:
+Resposta: CAPTOPRIL (O captopril é classificado pelo FDA como um medicamento de risco D na gestação, em que há evidências de risco ao feto humano, sendo recomendado avaliar o risco-benefício, como existe anti-hipertensivo mais seguro, tal como, a metildopa, a utilização do captopril por gestantes não é recomendada).
+
+4. Qual característica do medicamento faz com que ele atravesse mais facilmente a barreira transplacentária?
+__ __ __ __ __ __ __ __ __
+A B C D E F G H I J K L M N O P Q R S T U V X Y W Z 
+Mensagem feedback de acerto:
+Resposta: LIPOFILIA (Quanto mais lipofílico for um fármaco, mais facilmente ele atravessará a barreira placentária. Um exemplo são os opioides).
+
+5. Exemplo de um medicamento que pode ser utilizado no primeiro trimestre da gestação sem risco para o feto, sendo classificado pelo FDA como medicamento de risco A para utilização em gestantes.
+__ __ __ __ __     __ __ __ __ __ __
+A B C D E F G H I J K L M N O P Q R S T U V X Y W Z 
+Mensagem feedback de acerto:
+Resposta: ÁCIDO FÓLICO (O ácido fólico é um medicamento que pode ser utilizado por gestantes sem ocasionar riscos ao feto, inclusive é recomendada a sua utilização para evitar problemas no fechamento do tubo neural). 
+
+FIM JOGO]
+

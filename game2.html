@@ -25,20 +25,19 @@
       <section class="conteudos d-flex flex-column">
         <div class="card-conteudo ml-2 mr-2 mb-2">
           <span>
-            Medicamento que é contraindicado para gestantes ou mulheres que podem engravidar, 
-            responsável por casos de graves consequências no feto, inclusive focomelia?
+            Em qual período gestacional, a exposição a fármacos pode comprometer a organogênese?
           </span>
           <div class="d-flex flex-row justify-content-center">
-            <div class="empty" name="T" id="T"></div>
-            <div class="empty" name="A" id="A"></div>
-            <div class="empty" name="L" id="L"></div>
-            <div class="empty" name="I" id="I"></div>
-            <div class="empty" name="D" id="D"></div>
-            <div class="empty" name="O" id="O"></div>
-            <div class="empty" name="M" id="M"></div>
-            <div class="empty" name="I" id="I"></div>
-            <div class="empty" name="D" id="D"></div>
-            <div class="empty" name="A" id="A"></div>
+            <div class="empty" draggable="true" name="T" id="T">T</div>
+            <div class="empty" draggable="true" name="A" id="A">A</div>
+            <div class="empty" draggable="true" name="L" id="L">L</div>
+            <div class="empty" draggable="true" name="I" id="I">I</div>
+            <div class="empty" draggable="true" name="D" id="D">D</div>
+            <div class="empty" draggable="true" name="O" id="O">O</div>
+            <div class="empty" draggable="true" name="M" id="M">M</div>
+            <div class="empty" draggable="true" name="I" id="I">I</div>
+            <div class="empty" draggable="true" name="D" id="D">D</div>
+            <div class="empty" draggable="true" name="A" id="A"></div>
           </div>
           <div class="letras d-flex flex-row justify-content-around">
             <div class="letra" draggable="true" name="A">
@@ -194,10 +193,11 @@
           </div>
           <div class="modal-body">
             <p>
-              TALIDOMIDA (A talidomida é considerada um medicamento de risco X na gestação, 
-              sendo contraindicado o seu uso para gestantes ou mulheres que desejam engravidar. 
-              Inclusive após a tragédia da talidomida ocorrida entre 1950 e 1960, a utilização de medicamentos por gestantes passou a ser uma preocupação, 
-              levando a mudanças nas práticas de prescrição nesse grupo).
+              Viu só que trabalho importante nós temos para alcançar o
+              aprimoramento do Sistema de Saúde no Brasil? Mas existem
+              estratégias para atingir essa meta, e precisamos investir nelas!
+              Entre obstáculos e estratégias de superação, a luta é para vencer
+              os desafios e conquistar um SUS de qualidade..
             </p>
           </div>
           <div class="modal-footer">
@@ -242,7 +242,7 @@
           </div>
           <div class="modal-body">
             <p>
-              Resposta errada. Tente novamente.
+              Você ainda não acertou todas..
             </p>
           </div>
           <div class="modal-footer">
@@ -275,18 +275,16 @@
     }
 
     function nextPage(){
-      window.location.replace('game2.html');
+      console.log(window.location.replace('game2.html'));
     }
 
     document.getElementById("close-again").onclick = close_again;
     document.getElementById("close1-again").onclick = close_again;
     function close_again() {
-      //const modal = document.querySelector("#myModal-again");
-      //modal.className = "modal";
-      //modal.setAttribute("aria-hidden", "true");
-      //modal.setAttribute("style", "display: none");
-      document.location.reload(true);
-      
+      const modal = document.querySelector("#myModal-again");
+      modal.className = "modal";
+      modal.setAttribute("aria-hidden", "true");
+      modal.setAttribute("style", "display: none");
     }
   </script>
 </html>
